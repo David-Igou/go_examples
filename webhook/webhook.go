@@ -9,14 +9,6 @@ import (
 //	"os"
 )
 
-type webhook struct {
-	Action     string
-	Repository struct {
-		ID       string
-		FullName string
-	}
-}
-
 func handleWebhook(w http.ResponseWriter, r *http.Request) {
 	webhookData := make(map[string]interface{})
 	err := json.NewDecoder(r.Body).Decode(&webhookData)
